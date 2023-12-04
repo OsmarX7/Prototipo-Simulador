@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototipo de simulador</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/ui.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+
+    <div id="presentation" class="presentation">
+        <h1>Casos clínicos de virus</h1>
+        <h2>Virus transmitidos por vector</h2>
+        <button class="cta" id="presentcta">
+            <span>Comenzar el caso</span>
+            <svg viewBox="0 0 13 10" height="15px" width="20px">
+              <path d="M1,5 L11,5"></path>
+              <polyline points="8 1 12 5 8 9"></polyline>
+            </svg>
+          </button>
+    </div>
+
+    <div id="filtroblue" class="filtroblue"></div>
+
+    <main id="cardmain" class="card-main">
+        <main id="cardtask1" class="card-task1">
+            <h1>Caso clínico de OH</h1>
+            <p>Paciente masculino de 27 años de edad que se presenta con fiebre, cefalea intensa, dolor retroocular, mialgia y dolor abdominal, también ha experimentado náuseas, sin llegar al vómito. Refiere la presencia de estos síntomas durante los últimos 5 días.</p>
+            <ul>
+                <li>Frecuencia cardíaca: 90 lpm</li>
+                <li>Presión arterial: 117/ 80 mmHg</li>
+                <li>FR: 18 rpm </li>
+                <li>Temperatura: 38.5º</li>
+            </ul>
+        </main>
+
+
+        <main id="cardtask2" class="card-task2">
+            <h1>¿Cuál es el primer paso para el abordaje de este paciente?</h1>
+            <div class="ct2options">
+                <button id="ct2oe" class="ctrsp">Examen físico</button>
+                <button id="ct2ow" class="ctrsp">Anamnesis</button>
+                <button id="ct2oe" class="ctrsp">Mandar exámenes diagnósticos</button>
+            </div>
+            <div id="wnoti" class="wnotifications-container">
+                <div class="success">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div class="success-prompt-wrap">
+                      <p class="success-prompt-heading">Correcto</p>
+                    <div class="success-prompt-prompt">
+                        <p>La información recopilada durante la anamnesis proporciona pistas cruciales que orientan al médico hacia posibles diagnósticos. Los síntomas, la duración y la progresión de la enfermedad son datos valiosos para el proceso diagnóstico.</p>
+                    </div>
+                        <div ct2ebm class="success-button-container">
+                          <button id="ct2wbm" type="button" class="success-button-main">Continuar caso</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="enoti" class="enotifications-container">
+                <div class="error-alert">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                        <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div class="error-prompt-container">
+                      <p class="error-prompt-heading">Incorrecto</p>
+                        <div class="error-prompt-wrap">
+                            <ul class="error-prompt-list" role="list">
+                                <li>Aquí deberian ir recomendaciones</li>
+                                <li>Aquí también</li>
+                            </ul>
+                            <div class="error-button-container">
+                                <button id="ct2ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </main>
+
+
+        <main id="cardtask3" class="card-task3">
+            <h1>¿Qué antecedentes no patológicos son relevantes a interrogarle en este paciente?</h1>
+            <form id="test3" class="options">
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp1" class="cyberpunk-checkbox">
+                    Si hace ejercicio
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp2" class="cyberpunk-checkbox">
+                    Hace uso de mosquiteros o pabellones
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp3" class="cyberpunk-checkbox">
+                    Lugar donde reside
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp4" class="cyberpunk-checkbox">
+                    Cremas que usa
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp5" class="cyberpunk-checkbox">
+                    Uso de repelente
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp6" class="cyberpunk-checkbox">
+                    Lugar de trabajo
+                </label>
+                <label class="cyberpunk-checkbox-label">
+                    <input type="checkbox" id="rsp7" class="cyberpunk-checkbox">
+                    Dieta
+                </label>
+                <button id="test3btn" class="correct">
+                    Verificar
+                </button>
+            </form>
+            <div id="wnoti3" class="wnotifications-container">
+                <div class="success">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div class="success-prompt-wrap">
+                      <p class="success-prompt-heading">Correcto</p>
+                    <div class="success-prompt-prompt">
+                        <p>Es importante conocer la zona donde vive. Porque el mosquito Aedes agyptus es más frecuente en la ciudad y el Albopictus es más frecuente en las zonas rurales.</p>
+                    </div>
+                        <div ct2ebm class="success-button-container">
+                          <button id="ct3wbm" type="button" class="success-button-main">Continuar caso</button>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div id="enoti3" class="enotifications-container">
+                <div class="error-alert">
+                  <div class="flex">
+                    <div class="flex-shrink-0">
+                      <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                        <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                      </svg>
+                    </div>
+                    <div class="error-prompt-container">
+                      <p class="error-prompt-heading">Incorrecto</p>
+                        <div class="error-prompt-wrap">
+                            <ul class="error-prompt-list" role="list">
+                                <li>Aquí deberian ir recomendaciones</li>
+                                <li>Aquí también</li>
+                            </ul>
+                            <div class="error-button-container">
+                                <button id="ct3ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                              </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </main>
+
+
+        <main id="cardtask4" class="card-task4">
+            <h1>¿Qué APP son de interés para este caso?</h1>
+            <img id="ct4info" class="ct4info" src="./assets/icons/info.png" alt="">
+            <div class="ct4options">
+                <button id="ct4oe" class="ctrsp">Antecedentes de infección urinaria</button>
+                <button id="ct4oe" class="ctrsp">Antecedentes de cuadro respiratorio</button>
+                <button id="ct4ow" class="ctrsp">Antecedentes de dengue</button>
+            </div>
+            <div id="wnoti4" class="wnotifications-container">
+              <div class="success">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div class="success-prompt-wrap">
+                    <p class="success-prompt-heading">Correcto</p>
+                  <div class="success-prompt-prompt">
+                      <p>El antecedente de dengue, puede propiciar a que la próxima infección evolucione a un cuadro de dengue grave.</p>
+                  </div>
+                      <div ct2ebm class="success-button-container">
+                        <button id="ct4wbm" type="button" class="success-button-main">Continuar caso</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div id="enoti4" class="enotifications-container">
+              <div class="error-alert">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                      <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div class="error-prompt-container">
+                    <p class="error-prompt-heading">Incorrecto</p>
+                      <div class="error-prompt-wrap">
+                          <ul class="error-prompt-list" role="list">
+                              <li>Aquí deberian ir recomendaciones</li>
+                              <li>Aquí también</li>
+                          </ul>
+                          <div class="error-button-container">
+                              <button id="ct4ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                            </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </main>
+
+
+        <main id="cardtask5" class="card-task5">
+          <h1>¿Cuál es el primer síntoma para abordar en este paciente?</h1>
+          <div class="ct5options">
+            <button id="ct5oe" class="ctrsp">Dolor de cabeza</button>
+            <button id="ct5oe" class="ctrsp">Mialgia</button>
+            <button id="ct5ow" class="ctrsp">Fiebre</button>
+          </div>
+          <div id="wnoti5" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                    <p>Por ser el primer síntoma que refirió el paciente.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct5wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="enoti5" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                        <ul class="error-prompt-list" role="list">
+                            <li>Aquí deberian ir recomendaciones</li>
+                            <li>Aquí también</li>
+                        </ul>
+                        <div class="error-button-container">
+                            <button id="ct5ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                          </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+        <main id="cardtask6" class="card-task6">
+          <h1>¿Qué se debe preguntar acerca de la fiebre?</h1>
+          <div class="ct6options">
+            <button id="ct6ow" class="ctrsp">Cuando empezó, si es intermitente, duración y que medicamento ingirió para controlarla</button>
+            <button id="ct6oe" class="ctrsp">Cuando empezó, si es hereditaria y si se me a trabajar con la fiebre</button>
+            <button id="ct6oe" class="ctrsp">Si desayuno, si es intermitente, irradiación y que medicamento ingirió para controlarla</button>
+          </div>
+          <div id="wnoti6" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                    <p>Solo se le puede llamar fiebre cuanto se cuantificó con un termómetro. En dado caso que no se la haya medido, ver signos como: boca reseca. ojos pálidos, etc.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct6wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="enoti6" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                        <ul class="error-prompt-list" role="list">
+                            <li>Aquí deberian ir recomendaciones</li>
+                            <li>Aquí también</li>
+                        </ul>
+                        <div class="error-button-container">
+                            <button id="ct6ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                          </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+
+        <main id="cardtask7" class="card-task7">
+          <h1>Dolor de cabeza intenso, dolor retroocular,  mialgia, y dolor abdominal, también ha experimentado náuseas, pero sin llegar al vómito ¿Cual es la semiología del dolor?</h1>
+          <form id="test7" class="options7">
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp1" class="cyberpunk-checkbox">
+                  Cuando inicio
+              </label>
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp2" class="cyberpunk-checkbox">
+                  Donde se localiza
+              </label>
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp3" class="cyberpunk-checkbox">
+                  A donde se irradia
+              </label>
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp4" class="cyberpunk-checkbox">
+                  Tipo de dolor
+              </label>
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp5" class="cyberpunk-checkbox">
+                  Intensidad del dolor
+              </label>
+              <label class="cyberpunk-checkbox-label">
+                  <input type="checkbox" id="ct7rsp6" class="cyberpunk-checkbox">
+                  Exacerba o disminuye con algo
+              </label>
+              <button id="test7btn" class="correct">
+                  Verificar
+              </button>
+          </form>
+          <div id="wnoti7" class="wnotifications-container">
+              <div class="success">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div class="success-prompt-wrap">
+                    <p class="success-prompt-heading">Correcto</p>
+                  <div class="success-prompt-prompt">
+                      <img class="alice" src="./assets/images/alicia.jpg" alt="">
+                  </div>
+                      <div ct2ebm class="success-button-container">
+                        <button id="ct7wbm" type="button" class="success-button-main">Continuar caso</button>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div id="enoti7" class="enotifications-container">
+              <div class="error-alert">
+                <div class="flex">
+                  <div class="flex-shrink-0">
+                    <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                      <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                    </svg>
+                  </div>
+                  <div class="error-prompt-container">
+                    <p class="error-prompt-heading">Incorrecto</p>
+                      <div class="error-prompt-wrap">
+                        <img class="alice" src="./assets/images/alicia.jpg" alt="">
+                          <div class="error-button-container">
+                              <button id="ct7ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+      </main>
+
+
+      <main id="cardtask8" class="card-task8">
+        <h1>¿Qué tipo de Rash cutáneo se presenta en el dengue?</h1>
+        <div class="ct8options">
+          <button id="ct8oe" class="ctrsp">Erupción maculo vesicular</button>
+          <button id="ct8oe" class="ctrsp">Ampolloso</button>
+          <button id="ct8ow" class="ctrsp">Erupción maculopapular</button>
+          <button id="ct8oe" class="ctrsp">Macular</button>
+        </div>
+        <div id="wnoti8" class="wnotifications-container">
+          <div class="success">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Correcto</p>
+              <div class="success-prompt-prompt">
+                  <p>Este rash es característico de la fiebre por dengue y aparece después de la fase febril. Empieza en extremidades y predomina igual en este sitio</p>
+              </div>
+                  <div ct2ebm class="success-button-container">
+                    <button id="ct8wbm" type="button" class="success-button-main">Continuar caso</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="enoti8" class="enotifications-container">
+          <div class="error-alert">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">Incorrecto</p>
+                  <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                          <li>Aquí deberian ir recomendaciones</li>
+                          <li>Aquí también</li>
+                      </ul>
+                      <div class="error-button-container">
+                          <button id="ct8ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask9" class="card-task9">
+        <h1>¿Cuáles son las fases del dengue?</h1>
+        <img id="ct9info" class="ct9info" src="./assets/icons/info.png" alt="">
+        <div class="ct9options">
+          <button id="ct9oe" class="ctrsp">Fase crítica, medial y curativa</button>
+          <button id="ct9ow" class="ctrsp">Fase febril, crítica y convaleciente</button>
+          <button id="ct9oe" class="ctrsp">Fase febril, prodrómica y convaleciente</button>
+        </div>
+        <div id="wnoti9" class="wnotifications-container">
+          <div class="success">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Correcto</p>
+              <div class="success-prompt-prompt">
+                  <p>:D</p>
+              </div>
+                  <div ct2ebm class="success-button-container">
+                    <button id="ct9wbm" type="button" class="success-button-main">Continuar caso</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="enoti9" class="enotifications-container">
+          <div class="error-alert">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">Incorrecto</p>
+                  <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                          <li>Aquí deberian ir recomendaciones</li>
+                          <li>Aquí también</li>
+                      </ul>
+                      <div class="error-button-container">
+                          <button id="ct9ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask10" class="card-task10">
+        <h1>¿Qué tanto dura la fase febril?</h1>
+        <div class="ct10options">
+          <button id="ct10oe" class="ctrsp">De 3 a 14 días</button>
+          <button id="ct10ow" class="ctrsp">De 2 a 7 días</button>
+          <button id="ct10oe" class="ctrsp">De 1 a 3 días</button>
+        </div>
+        <div id="wnoti10" class="wnotifications-container">
+          <div class="success">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Correcto</p>
+              <div class="success-prompt-prompt">
+                  <p>La fase febril ocurre después de un periodo de incubación de 3 a 14 días. Y después viene la fase febril, la cual dura de 2 a 7 días.</p>
+              </div>
+                  <div ct2ebm class="success-button-container">
+                    <button id="ct10wbm" type="button" class="success-button-main">Continuar caso</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="enoti10" class="enotifications-container">
+          <div class="error-alert">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">Incorrecto</p>
+                  <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                          <li>Aquí deberian ir recomendaciones</li>
+                          <li>Aquí también</li>
+                      </ul>
+                      <div class="error-button-container">
+                          <button id="ct10ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask11" class="card-task11">
+        <h1>¿Cuáles son los signos de alarma que nos interesaría saber si progresaría a dengue hemorrágico?</h1>
+        <form id="test11" class="options11">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp1" class="cyberpunk-checkbox">
+                Fiebre de 38.2 a 40° (72 horas con fiebre)
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp2" class="cyberpunk-checkbox">
+                Dolor de muelas
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp3" class="cyberpunk-checkbox">
+                Evidencia de sangrado las primera 72 hrs
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp4" class="cyberpunk-checkbox">
+                Artralgia
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp5" class="cyberpunk-checkbox">
+                Dolor abdominal tipo visceral intenso que no cede a antiinflamatorios
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct11rsp6" class="cyberpunk-checkbox">
+                Xerostomía
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct11rsp7" class="cyberpunk-checkbox">
+              Priapismo
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct11rsp8" class="cyberpunk-checkbox">
+              Vomito reiterativo (mas de 8 vómitos en 24 hrs)
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct11rsp9" class="cyberpunk-checkbox">
+              Hipertensión
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct11rsp10" class="cyberpunk-checkbox">
+              Aumento de hematocrito con disminución del recuento plaquetario
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct11rsp11" class="cyberpunk-checkbox">
+              Hepatomegalia
+            </label>
+            <button id="test11btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti11" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>:D</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct11wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti11" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct11ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask12" class="card-task12">
+        <h1>¿Qué factores de riesgo intervienen para una infección por dengue?</h1>
+        <form id="test12" class="options12">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp1" class="cyberpunk-checkbox">
+                Embarazo
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp2" class="cyberpunk-checkbox">
+                Infancia
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp3" class="cyberpunk-checkbox">
+                Edad avanzada
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp4" class="cyberpunk-checkbox">
+                Diabetes
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp5" class="cyberpunk-checkbox">
+                Insuficiencia renal
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct12rsp6" class="cyberpunk-checkbox">
+                Obesidad
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct12rsp7" class="cyberpunk-checkbox">
+              Enfermedades hemolíticas crónicas
+            </label>
+            <button id="test12btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti12" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>Son complicaciones comórbidas que pueden complicar el cuadro clínico y el manejo.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct12wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti12" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct12ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask13" class="card-task13">
+        <h1>¿Qué tratamiento se le indicará al paciente?</h1>
+        <img id="ct13info" class="ct13info" src="./assets/icons/info.png" alt="">
+        <form id="test13" class="options13">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct13rsp1" class="cyberpunk-checkbox">
+                Hidratación con vía suero oral
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct13rsp2" class="cyberpunk-checkbox">
+                Uso de AINES para malestar muscular
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct13rsp3" class="cyberpunk-checkbox">
+                Control térmico con medios físicos
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct13rsp4" class="cyberpunk-checkbox">
+                Uso de antivirales para combatir la infección viral
+            </label>
+            <button id="test13btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti13" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>En caso de pacientes con dengue no grave el tratamiento es paliativo, manteniendo hidratado al paciente, bajando la fiebre con medios físicos y capacitar a la familia antes cualquier sospecha de signo de alarma.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct13wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti13" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct13ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask14" class="card-task14">
+        <h1>¿Qué pruebas diagnósticas se mandarían a realizar para confirmar la sospecha del diagnóstico?</h1>
+        <form id="test14" class="options14">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct14rsp1" class="cyberpunk-checkbox">
+                Tomografía computarizada de abdomen
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct14rsp2" class="cyberpunk-checkbox">
+                Biometría hemática
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct14rsp3" class="cyberpunk-checkbox">
+                Recuento de plaquetas
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct14rsp4" class="cyberpunk-checkbox">
+                Pruebas de función hepática
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct14rsp5" class="cyberpunk-checkbox">
+              EGO
+          </label>
+            <button id="test14btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti14" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>En caso de pacientes con dengue no grave el tratamiento es paliativo, manteniendo hidratado al paciente, bajando la fiebre con medios físicos y capacitar a la familia antes cualquier sospecha de signo de alarma.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct14wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti14" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct14ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask15" class="card-task15">
+        <h1>¿Qué datos nos harían confirmar el diagnóstico?</h1>
+        <form id="test15" class="options15">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct15rsp1" class="cyberpunk-checkbox">
+                Eritrocitosis
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct15rsp2" class="cyberpunk-checkbox">
+                Plaquetas mayor a 500 mil
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct15rsp3" class="cyberpunk-checkbox">
+                Plaquetas menos a 100 mil
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct15rsp4" class="cyberpunk-checkbox">
+                Pancitopenia
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct15rsp5" class="cyberpunk-checkbox">
+              Elevación del hematocrito
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct15rsp6" class="cyberpunk-checkbox">
+              Leucopenia con linfopenia
+            </label>
+            <button id="test15btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti15" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>En caso de pacientes con dengue no grave el tratamiento es paliativo, manteniendo hidratado al paciente, bajando la fiebre con medios físicos y capacitar a la familia antes cualquier sospecha de signo de alarma.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct15wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti15" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct15ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask16" class="card-task16">
+        <h1>¿Cuáles son las fases del dengue?</h1>
+        <img id="ct16info" class="ct16info" src="./assets/icons/info.png" alt="">
+        <div class="ct16options">
+          <button id="ct16ow" class="ctrsp">Virus de la familia Flaviviridae, género Flavivirus. Virus de ARN monocatenario sentido positivo y lineal. Esférico, de simetría icosaédrica y envuelto</button>
+          <button id="ct16oe" class="ctrsp">Virus de la familia Paramyxoviridae género Morbillivirus. Virus ARN monocatenario lineal de sentido negativo. Esférico de dimetria helicoidal y envuelto</button>
+          <button id="ct16oe" class="ctrsp">Virus de la familia Togaviridae, género Rubivirus. Virus de ARN monocaterio de sentido positivo y lineal. Icosaédrico de simetría helicoidal y desnudo</button>
+        </div>
+        <div id="wnoti16" class="wnotifications-container">
+          <div class="success">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Correcto</p>
+              <div class="success-prompt-prompt">
+                  <p>:D</p>
+              </div>
+                  <div ct2ebm class="success-button-container">
+                    <button id="ct16wbm" type="button" class="success-button-main">Continuar caso</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="enoti16" class="enotifications-container">
+          <div class="error-alert">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">Incorrecto</p>
+                  <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                          <li>Aquí deberian ir recomendaciones</li>
+                          <li>Aquí también</li>
+                      </ul>
+                      <div class="error-button-container">
+                          <button id="ct16ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask17" class="card-task17">
+        <h1>¿Cuáles son los mecanismos de transmisión del virus?</h1>
+        <form id="test17" class="options17">
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct17rsp1" class="cyberpunk-checkbox">
+                Secreciones
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct17rsp2" class="cyberpunk-checkbox">
+                Fomites
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct17rsp3" class="cyberpunk-checkbox">
+                Fecal oral
+            </label>
+            <label class="cyberpunk-checkbox-label">
+                <input type="checkbox" id="ct17rsp4" class="cyberpunk-checkbox">
+                Vectores
+            </label>
+            <label class="cyberpunk-checkbox-label">
+              <input type="checkbox" id="ct17rsp5" class="cyberpunk-checkbox">
+              Por alimentos
+            </label>
+            <button id="test17btn" class="correct">
+                Verificar
+            </button>
+        </form>
+        <div id="wnoti17" class="wnotifications-container">
+            <div class="success">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="success-prompt-wrap">
+                  <p class="success-prompt-heading">Correcto</p>
+                <div class="success-prompt-prompt">
+                  <p>En caso de pacientes con dengue no grave el tratamiento es paliativo, manteniendo hidratado al paciente, bajando la fiebre con medios físicos y capacitar a la familia antes cualquier sospecha de signo de alarma.</p>
+                </div>
+                    <div ct2ebm class="success-button-container">
+                      <button id="ct17wbm" type="button" class="success-button-main">Continuar caso</button>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div id="enoti17" class="enotifications-container">
+            <div class="error-alert">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                    <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <div class="error-prompt-container">
+                  <p class="error-prompt-heading">Incorrecto</p>
+                    <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                        <li>Aquí deberian ir recomendaciones</li>
+                        <li>Aquí también</li>
+                      </ul>
+                        <div class="error-button-container">
+                            <button id="ct17ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+
+      <main id="cardtask18" class="card-task18">
+        <h1>¿Por medio de qué tipo de vector se transmite el virus?</h1>
+        <div class="ct18options">
+          <button id="ct18oe" class="ctrsp">Pulgas</button>
+          <button id="ct18oe" class="ctrsp">Piojos</button>
+          <button id="ct18ow" class="ctrsp">Mosquitos</button>
+          <button id="ct18oe" class="ctrsp">Chinches</button>
+          <button id="ct18oe" class="ctrsp">Garrapata</button>
+        </div>
+        <div id="wnoti18" class="wnotifications-container">
+          <div class="success">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="succes-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="success-prompt-wrap">
+                <p class="success-prompt-heading">Correcto</p>
+              <div class="success-prompt-prompt">
+                  <p>:D</p>
+              </div>
+                  <div ct2ebm class="success-button-container">
+                    <button id="ct18wbm" type="button" class="success-button-main">Continuar caso</button>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="enoti18" class="enotifications-container">
+          <div class="error-alert">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="error-svg">
+                  <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" fill-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="error-prompt-container">
+                <p class="error-prompt-heading">Incorrecto</p>
+                  <div class="error-prompt-wrap">
+                      <ul class="error-prompt-list" role="list">
+                          <li>Aquí deberian ir recomendaciones</li>
+                          <li>Aquí también</li>
+                      </ul>
+                      <div class="error-button-container">
+                          <button id="ct18ebm" type="button" class="error-button-main">Intentar de nuevo</button>
+                        </div>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+
+      <main class="card-multi1">
+            <img class="infoskin" id="infoskin" src="./assets/icons/rec.png" alt="">
+            <img class="infohead" id="infohead" src="./assets/icons/rec.png" alt="">
+            <img id="pacientemale27" class="pacientemale27" src="./assets/images/pacientemale27.jpg" alt="">
+            <div class="pacientemale27head" id="pacientemale27head">
+                <img src="./assets/images/dolorbitemporal.jpg" alt="">
+                <button class="valoresbhbtn" id="headbtn">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                    <div class="close">Close</div>
+                </button>  
+            </div>
+            <div class="pacientemale27skin" id="pacientemale27skin">
+                <img src="./assets/images/pacientemale27skin.png" alt="">
+                <button class="valoresbhbtn" id="skinbtn">
+                    <span class="X"></span>
+                    <span class="Y"></span>
+                    <div class="close">Close</div>
+                </button>  
+            </div>
+        </main>
+      </main>
+
+    <footer id="footerjust" class="footer-just">
+        <img id="footerinfo" class="footer-icon" src="./assets/icons/test.png" alt="">
+        <div class="valoresbh" id="valoresbh">
+            <button class="valoresbhbtn" id="valoresbhbtn">
+                <span class="X"></span>
+                <span class="Y"></span>
+                <div class="close">Close</div>
+            </button>              
+            <h1>Valores de biometría hemática</h1>
+            <ul>
+                <li>Hemoglobina: 12 g/dL</li>
+                <li>Hematocrito: 36%</li>
+                <li>Recuento de glóbulos blancos: 3,500/mm3</li>
+                <li>Recuento de plaquetas: 90,000 mm3</li>
+                <li>Neutrofilos: 40%</li>
+                <li>Linfocitos: 50%</li>
+                <li>Monocitos: 8%</li>
+                <li>Eosinfilo: 2%</li>
+            </ul>
+        </div>
+        <img id="footerlabs" src="./assets/icons/result.png" class="footer-icon" alt="">
+        <div id="labs" class="labs">
+          <button class="valoresbhbtn" id="labsbtn">
+            <span class="X"></span>
+            <span class="Y"></span>
+            <div class="close">Close</div>
+        </button>   
+          <table data-title="Blood">
+            <thead>
+              <tr>
+                <th class="">Hematologic</th>
+                <th class="">Reference Range</th>
+                <th class="">SI Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="2">Erythrocyte count</td>
+                <td class="refRange">Male: 4.3–5.9 million/mm<sup>3</sup></td>
+                <td class="SI">4.3–5.9 x 10<sup>12</sup>/L</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 3.5–5.5 million/mm<sup>3</sup></td>
+                <td class="SI">3.5–5.5 x 10<sup>12</sup>/L</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Erythrocyte sedimentation rate (Westergren)</td>
+                <td class="refRange">Male: 0–15 mm/h</td>
+                <td class="SI group">0–15 mm/h</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 0–20 mm/h</td>
+                <td class="SI">0–20 mm/h</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Hematocrit</td>
+                <td class="refRange">Male: 41%–53%</td>
+                <td class="SI">0.41–0.53</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 36%–46%</td>
+                <td class="SI">0.36–0.46</td>
+              </tr>
+              <tr>
+                <td rowspan="2">Hemoglobin, blood</td>
+                <td class="refRange">Male: 13.5–17.5 g/dL</td>
+                <td class="SI">135–175 g/L</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 12.0–16.0 g/dL</td>
+                <td class="SI">120–160 g/L</td>
+              </tr>
+              <tr>
+                <td>Hemoglobin A<sub>1c</sub></td>
+                <td class="refRange">≤6%</td>
+                <td class="SI">≤42 mmol/mol</td>
+              </tr>
+              <tr>
+                <td>Hemoglobin, plasma</td>
+                <td class="refRange">&lt;4 mg/dL</td>
+                <td class="SI">&lt;0.62 mmol/L</td>
+              </tr>
+              <tr>
+                <td>Leukocyte count (WBC)</td>
+                <td class="refRange">4500–11,000/mm<sup>3</sup></td>
+                <td class="SI">4.5–11.0 x 10<sup>9</sup>/L</td>
+              </tr>
+              <tr>
+                <td> Neutrophils, segmented</td>
+                <td class="refRange">54%–62%</td>
+                <td class="SI">0.54–0.62</td>
+              </tr>
+              <tr>
+                <td> Neutrophils, bands</td>
+                <td class="refRange">3%–5%</td>
+                <td class="SI">0.03–0.05</td>
+              </tr>
+              <tr>
+                <td> Eosinophils</td>
+                <td class="refRange">1%–3%</td>
+                <td class="SI">0.01–0.03</td>
+              </tr>
+              <tr>
+                <td> Basophils</td>
+                <td class="refRange">0%–0.75%</td>
+                <td class="SI">0.00–0.0075</td>
+              </tr>
+              <tr>
+                <td> Lymphocytes</td>
+                <td class="refRange">25%–33%</td>
+                <td class="SI">0.25–0.33</td>
+              </tr>
+              <tr>
+                <td> Monocytes</td>
+                <td class="refRange">3%–7%</td>
+                <td class="SI">0.03–0.07</td>
+              </tr>
+              <tr>
+                <td>CD4+ T-lymphocyte count</td>
+                <td class="refRange">&gt;500/mm<sup>3</sup></td>
+                <td class="SI">&gt;0.5 x 10<sup>9</sup>/L</td>
+              </tr>
+              <tr>
+                <td>Platelet count</td>
+                <td class="refRange">150,000–400,000/mm<sup>3</sup></td>
+                <td class="SI">150–400 x 10<sup>9</sup>/L</td>
+              </tr>
+              <tr>
+                <td>Reticulocyte count</td>
+                <td class="refRange">0.5%–1.5%</td>
+                <td class="SI">0.005–0.015</td>
+              </tr>
+              <tr>
+                <td>D-Dimer</td>
+                <td class="refRange">≤250 ng/mL</td>
+                <td class="SI">≤1.4 nmol/L</td>
+              </tr>
+              <tr>
+                <td>Partial thromboplastin time (PTT) (activated)</td>
+                <td class="refRange">25–40 seconds</td>
+                <td class="SI">25–40 seconds</td>
+              </tr>
+              <tr>
+                <td>Prothrombin time (PT)</td>
+                <td class="refRange">11–15 seconds</td>
+                <td class="SI">11–15 seconds</td>
+              </tr>
+              <tr>
+                <td>Mean corpuscular hemoglobin (MCH)</td>
+                <td class="refRange">25–35 pg/cell</td>
+                <td class="SI">0.39–0.54 fmol/cell</td>
+              </tr>
+              <tr>
+                <td>Mean corpuscular hemoglobin concentration (MCHC)</td>
+                <td class="refRange">31%–36% Hb/cell</td>
+                <td class="SI">4.8–5.6 mmol Hb/L</td>
+              </tr>
+              <tr>
+                <td>Mean corpuscular volume (MCV)</td>
+                <td class="refRange">80–100 µm<sup>3</sup></td>
+                <td class="SI">80–100 fL</td>
+              </tr>
+              <tr>
+                <td class="ls-tab-subhead labName" colspan="3">Volume</td>
+              </tr>
+              <tr class="group">
+                <td rowspan="2"> Plasma</td>
+                <td class="refRange">Male: 25–43 mL/kg</td>
+                <td class="SI">0.025–0.043 L/kg</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 28–45 mL/kg</td>
+                <td class="SI">0.028–0.045 L/kg</td>
+              </tr>
+              <tr class="group">
+                <td rowspan="2"> Red cell</td>
+                <td class="refRange">Male: 20–36 mL/kg</td>
+                <td class="SI">0.020–0.036 L/kg</td>
+              </tr>
+              <tr class="group">
+                <td class="refRange">Female: 19–31 mL/kg</td>
+                <td class="SI">0.019–0.031 L/kg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <img id="footernext" class="footer-icon" src="./assets/icons/right-arrow.png" alt="">
+    </footer>
+
+    <script src="./assets/js/app.js"></script>
+</body>
+</html>
